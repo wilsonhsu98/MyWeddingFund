@@ -1,0 +1,317 @@
+@charset "UTF-8";
+.test {
+    background: #ccc url(../img/test.png) 0 0 no-repeat;
+}
+body {
+    font: 20px 微軟正黑體;
+    overflow-y: scroll;
+}
+.title {
+    font: 30px 微軟正黑體;
+    text-align: center;
+    padding: 10px;
+    // display: none;
+}
+.spread-sheet {
+    position: relative;
+    .block-page {
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        &.open {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(204, 204, 204, 0.9);
+            .btn-open-block {
+                display: none;
+            }
+            .cloud-iframe {
+                display: inherit;
+                visibility: visible;
+                position: absolute;
+                width: 90%;
+                height: 90%;
+                top: 5%;
+                right: 5%;
+                bottom: 5%;
+                left: 5%;
+            }
+            .round-block, .pwd-block {
+                display: inherit;
+                visibility: visible;
+                position: absolute;
+                margin: auto;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+            .pwd-block {
+                width: 200px;
+                height: 100px;
+                line-height: 100px;
+                text-align: center;
+            }
+        }
+        .cloud-iframe, .round-block, .pwd-block {
+            display: none;
+            visibility: hidden;
+        }
+    }
+}
+.sheet {
+    &-list {
+        padding: 10px;
+    }
+    &-table {
+        width: 100%;
+        table-layout: fixed;
+        // border-spacing: 0 1em;
+        // border-collapse: separate;
+        border-collapse: collapse;
+        border: 1px solid #999;
+        th, td {
+            padding: 0 2px;
+            line-height: 50px;
+            &.heightlight {
+                font-weight: bold;
+                font-size: 40px;
+                color: red;
+            }
+        }
+        th, td.center {
+            text-align: center;
+        }
+    }
+    &-row {
+        border-bottom: 1px solid #999;
+        &.hide {
+            display: none;
+        }
+        &.find {
+            background-color: #FFD1D1;
+        }
+        .td-for-barcode {
+            width: 200px;
+            display: none;
+        }
+        img {
+            vertical-align: middle;
+        }
+    }
+}
+.bar-code {
+    display: inline-block;
+    width: 200px;
+    // width: 100%;
+    height: 40px;
+}
+.search-bar {
+    display: inline-block;
+    float: left;
+    margin-bottom: 10px;
+    padding-left: 4px;
+    > * {
+        vertical-align: middle;
+    }
+    .chk-block {
+        display: inline-block;
+    }
+}
+
+.button-bar {
+    display: inline-block;
+    float: right;
+    // margin-top: 10px;
+    margin-bottom: 10px;
+}
+.money-list {
+    display: none;
+}
+
+button {
+    font: 20px 微軟正黑體;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 8px;
+    margin: 0 4px;
+    border: 1px solid rgb(169, 169, 169);
+    border-radius: 4px;
+    &.btn-refresh {
+        visibility: hidden;
+    }
+}
+input[type=text], input[type=password] {
+    font: 20px 微軟正黑體;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    padding: 8px;
+    border: 1px solid rgb(169, 169, 169);
+    border-radius: 4px;
+    box-sizing: border-box;
+    &:disabled {
+        background-color: #CCC;
+    }
+}
+select {
+    width: 100%;
+    max-width: 300px;
+    font: 20px 微軟正黑體;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 0 0 8px;
+    border: 1px solid rgb(169, 169, 169);
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+.hidden {
+    display: none;
+}
+
+.round-block {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    &.hide {
+        -webkit-animation-name: fadeOutRound;
+        -webkit-animation-duration: 0.5s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-fill-mode: forwards;
+    }
+
+    .round-block__track {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    .round-block__number {
+        display: block;
+        width: 100%;
+        height: 100%;
+        line-height: 400px;
+        text-align: center;
+        color: #FFF;
+        font-size: 100px;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    body,
+    .sheet-table td.heightlight {
+        font-size: 16px;
+    }
+    input[type=text] {
+        font-size: 16px;
+        padding: 2px 5px;
+    }
+    button.btn-refresh {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        font-size: 16px;
+        padding: 0 4px;
+        margin: 0;
+        height: 30px;
+        line-height: 18px;
+        visibility: visible;
+    }
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .sheet-table {
+        .sheet-row {
+            border-top: 1px solid #999;
+        }
+        td {
+            text-align: left;
+            &.center { text-align: left; }
+            display: block;
+            line-height: 30px;
+            padding-left: 60px;
+            &:before {
+                margin-left: -60px;
+                font-size: 16px;
+                color: initial;
+                content: attr(data-th)":";
+                font-weight: bold;
+                display: inline-block;
+                width: 40px;
+                text-align: right;
+                padding: 0 10px;
+            }
+        }
+    }
+    .no-mobile,
+    .spread-sheet .block-page,
+    .sheet-table th {
+        display: none!important;
+    }
+}
+
+@media print {
+    .sheet-list {
+        margin: 0;
+        padding: 0;
+    }
+    .sheet-table {
+        margin: 0;
+        padding: 0;
+
+        border-spacing: 0;
+        border-collapse: collapse;
+        border: none;
+    }
+    .sheet-row, .sheet-row.hide {
+        margin: 0;
+        padding: 0;
+
+        width: 33%;
+        height: 3.58cm;
+        display: inline-block;
+        border-bottom: none;
+        text-align: center;
+    }
+    .sheet-row {
+        td:not(.no-print) {
+            margin: 0;
+            display: inline-block;
+        }
+        td.td-for-barcode {
+            margin: 10px 5px 0 10px;
+            display: inline-block;
+        }
+        div {
+            line-height: 17px;
+            font-size: 15px;
+            text-align: center;
+        }
+    }
+    .no-print {
+        display: none;
+    }
+    .money-list.sheet-table {
+        margin: 30px;
+        padding: 0;
+
+        display: table;
+        page-break-after: always;
+        div {
+            margin-bottom: 60px;
+        }
+    }
+}
