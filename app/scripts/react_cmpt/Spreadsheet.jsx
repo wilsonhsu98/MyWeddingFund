@@ -10,11 +10,11 @@ import {
     saveOrder,
     pushToCloud,
     toggleShowAll,
+    setProgress,
 } from '../actions/action'
 
 import jBarcode from 'jBarcode'
 import RoundProgress from 'RoundProgress'
-import AppAction from '../actions/AppAction'
 
 const ENTER_KEY_CODE = 13
 const TAB_KEY_CODE = 9
@@ -57,16 +57,21 @@ class Spreadsheet extends Component {
         }).on("change", (value) => {
             $(this.refs.progressLabel).text(Math.min(parseInt(value, 10), 100) + '%')
         }).on("complete", () => {
-            this.setState({
-                openUpload: false,
-            })
-            this.progress.setValue(0)
+            dispatch(setProgress(0))
         })
 
         if (this.state.openPwd) {
             setTimeout(() => {
                 this.refs.pwd.focus()
             }, 0)
+        }
+    }
+    componentDidUpdate() {
+        if (this.props.uploadVal) {
+            // this.setState({
+            //     openUpload: true
+            // });
+            this.progress.setValue(this.props.uploadVal * 100)
         }
     }
     render() {
@@ -110,7 +115,7 @@ class Spreadsheet extends Component {
                     <iframe className='cloud-iframe' ref='cloudFrame'/>
                     <button onClick={(e) => this._openCloud(e)} className='no-print btn-open-block' disabled={this.state.readOnly ? true : false}>雲端</button>
                 </div>
-                <div className={'block-page no-print' + (this.state.openUpload ? ' open' : '')}>
+                <div className={'block-page no-print' + (this.props.onUpload ? ' open' : '')}>
                     <div ref="progress">
                         <span ref="progressLabel"></span>
                     </div>
@@ -295,8 +300,7 @@ class Sheetlist extends Component {
             this.refs.upload.disabled = false
         }
         const { dispatch, data } = this.props
-        dispatch(pushToCloud(data));
-        // AppAction.pushToCloud(disabledBtn, enableBtn);
+        dispatch(pushToCloud(data, disabledBtn, enableBtn));
     }
     _print() {
         window.print()
@@ -435,6 +439,8 @@ function mapStateToProps(state) {
         data: state.overallReducer.data,
         cat: state.overallReducer.cat,
         showAll: state.uiReducer.showAll,
+        onUpload: state.uiReducer.onUpload,
+        uploadVal: state.uiReducer.uploadVal,
     }
 }
 export default connect(mapStateToProps)(Spreadsheet)

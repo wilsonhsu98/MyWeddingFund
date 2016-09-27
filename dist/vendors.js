@@ -99,13 +99,13 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(41);
-	__webpack_require__(46);
+	__webpack_require__(40);
+	__webpack_require__(43);
+	__webpack_require__(11);
 	__webpack_require__(12);
-	__webpack_require__(13);
-	__webpack_require__(45);
-	__webpack_require__(42);
-	module.exports = __webpack_require__(43);
+	__webpack_require__(44);
+	__webpack_require__(41);
+	module.exports = __webpack_require__(42);
 
 
 /***/ },
@@ -127,7 +127,7 @@
 
 /***/ },
 
-/***/ 12:
+/***/ 11:
 /***/ function(module, exports) {
 
 	 /**
@@ -20886,7 +20886,7 @@
 
 /***/ },
 
-/***/ 13:
+/***/ 12:
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20900,11 +20900,11 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 *
 	 */
-	!function(e){if(true)module.exports=e(__webpack_require__(12));else if("function"==typeof define&&define.amd)define(["react"],e);else{var f;f="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this,f.ReactDOM=e(f.React)}}(function(e){return e.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED});
+	!function(e){if(true)module.exports=e(__webpack_require__(11));else if("function"==typeof define&&define.amd)define(["react"],e);else{var f;f="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this,f.ReactDOM=e(f.React)}}(function(e){return e.__SECRET_DOM_DO_NOT_USE_OR_YOU_WILL_BE_FIRED});
 
 /***/ },
 
-/***/ 41:
+/***/ 40:
 /***/ function(module, exports) {
 
 	/*! jQuery v1.11.2 | (c) 2005, 2014 jQuery Foundation, Inc. | jquery.org/license */
@@ -20915,11 +20915,11 @@
 
 /***/ },
 
-/***/ 42:
+/***/ 41:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*** IMPORTS FROM imports-loader ***/
-	var jQuery = __webpack_require__(41);
+	var jQuery = __webpack_require__(40);
 
 	/*
 	 * jQuery Barcode plugin 0.3
@@ -21244,11 +21244,11 @@
 
 /***/ },
 
-/***/ 43:
+/***/ 42:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*** IMPORTS FROM imports-loader ***/
-	var $ = __webpack_require__(41);
+	var $ = __webpack_require__(40);
 
 	/**
 	 * UI Component: RoundProgress
@@ -21302,7 +21302,7 @@
 
 	(function (wndw, factory) {
 		if (true) {
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(41)], __WEBPACK_AMD_DEFINE_RESULT__ = function ($) {
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(40)], __WEBPACK_AMD_DEFINE_RESULT__ = function ($) {
 				return factory($);
 			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 		} else if (typeof exports === 'object') {
@@ -21692,19 +21692,7 @@
 
 /***/ },
 
-/***/ 45:
-/***/ function(module, exports) {
-
-	/*
-	fluxify v0.2.2
-	https://github.com/arqex/fluxify
-	GNU-2: https://github.com/arqex/fluxify/raw/master/LICENSE
-	*/
-	!function(t,e){"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?module.exports=e():t.fluxify=e()}(this,function(){"use strict";var t={_extend:function(t){for(var e,i,r=0;r<arguments.length;r++){e=arguments[r];for(i in e)t[i]=e[i]}return t}},e=function(){Object.defineProperty(this,"_events",{value:{}}),"function"==typeof this.initialize&&this.initialize.apply(this,arguments)},i={on:function(t,e,i){var r=this._events[t]||[];return r.push({callback:e,once:i}),this._events[t]=r,this},once:function(t,e){this.on(t,e,!0)},off:function(t,e){if("undefined"==typeof t)this._events={};else if("undefined"==typeof e)this._events[t]=[];else{var i,r=this._events[t]||[];for(i=r.length-1;i>=0;i--)r[i]===e&&r.splice(i,1)}return this},trigger:function(t){var e,i,r=[].slice.call(arguments,1),n=this._events[t]||[],s=[];for(e=0;e<n.length;e++)i=n[e],i.callback?i.callback.apply(null,r):i.once=!0,i.once&&s.push(e);for(e=s.length-1;e>=0;e--)n.splice(s[e],1);return this}};t._extend(i,{addListener:i.on,removeListener:i.off,removeAllListeners:i.off,emit:i.trigger}),e.prototype={};for(var r in i)Object.defineProperty(e.prototype,r,{value:i[r]});Object.defineProperty(e,"_extend",{value:function(e){var i,r=this;i=e&&e.hasOwnProperty(constructor)?e.constructor:function(){return r.apply(this,arguments)},t._extend(i,r);var n=function(){Object.defineProperty(this,"constructor",{value:i})};if(n.prototype=r.prototype,i.prototype=new n,e)for(var s in e)"constructor"!=s&&Object.defineProperty(i.prototype,s,{value:e[s]});return i.__super__=r.prototype,i}});var n=e._extend({initialize:function(t){if(!t)return this.props={};this.props={};for(var e in t)this.props[e]=t[e]},get:function(t){return this.props[t]},set:function(t,e){var i,r,n=t,s=[];"undefined"!=typeof e&&(n={},n[t]=e);for(r in n)this.props[r]!=n[r]&&(i=this.props[r],this.props[r]=n[r],s.push({prop:r,previousValue:i,value:n[r]}));s.length&&this.emit("change",s)}}),s=e._extend({initialize:function(t){var e,i,r=this,s=t||{},o=new n(s.initialState);t.id&&Object.defineProperty(this,"_id",{value:t.id}),Object.defineProperties(this,{_callbacks:{writable:!0,configurable:!0,value:{}},addActionCallbacks:{value:function(t){for(e in t)r._callbacks[e]=t[e].bind(this,o)}},callback:{value:function(){var t=arguments[0],e=[].slice.call(arguments,1);return this._callbacks[t]?this._callbacks[t].apply(this,e):!0}.bind(this)}}),this.addActionCallbacks(s.actionCallbacks||{});var a=function(t){Object.defineProperty(r,t,{enumerable:!0,configurable:!1,get:function(){return o.get(t)}})};if(s.initialState)for(i in s.initialState)a(i,s.initialState[i]);o.on("change",function(t){var e,i,n=t.length;for(i=0;n>i;i++)e=t[i],r.hasOwnProperty(e.prop)||a(e.prop,e.value),r.emit("change:"+e.prop,e.value,e.previousValue);r.emit("change",t)})},getState:function(){return t._extend({},this)},waitFor:function(t){return this._dispatcher.waitFor(t)}}),o=function(){this._callbacks={},this._dispatchQueue=[],this._currentDispatch=!1,this._ID=1,"undefined"!=typeof Promise&&(this._Promise=Promise)};o.prototype={register:function(t,e){var i=t;return"function"==typeof t&&(i="ID_"+this._ID,e=t),this._callbacks[i]=e,this._ID++,i},registerStore:function(t,e){return Object.defineProperty(e,"_dispatcher",{value:this}),this.register(t,e.callback)},unregister:function(t){delete this._callbacks[t]},waitFor:function(t){var e=[],i=0;for(Array.isArray(t)||(t=[t]);i<t.length;i++)this._promises[t[i]]&&e.push(this._promises[t[i]]);return e.length?this._Promise.all(e):this._Promise.resolve()},dispatch:function(){var t,e=this,i=arguments;if(!this._Promise)throw new TypeError("No promises.");return this._currentDispatch?(t=this._currentDispatch.then(function(){return e._dispatch.apply(e,i)}),this._dispatchQueue.push(t),this._currentDispatch=t):this._currentDispatch=this._dispatch.apply(e,i)},_dispatch:function(){var t=this,e=arguments,i=[];this._promises=[],Object.keys(this._callbacks).forEach(function(r){t._promises[r]=t._Promise.resolve().then(function(){return t._callbacks[r].apply(t,e)}).catch(function(t){console.error(t.stack||t)}),i.push(t._promises[r])});var r=function(){t._dispatchQueue.shift(),t._dispatchQueue.length||(t._currentDispatch=!1)};return this._Promise.all(i).then(r,r)},isDispatching:function(){return!!this._dispatchQueue.length}};var a=function(){Object.defineProperty(this,"dispatcher",{value:new o}),this.stores={},"undefined"!=typeof Promise&&this.promisify(Promise)};return a.prototype={createStore:function(t){var e=new s(t);return e._id&&(this.stores[e._id]=e,this.dispatcher.registerStore(e._id,e)),e},doAction:function(){return this.dispatcher.dispatch.apply(this.dispatcher,arguments)},promisify:function(t){this._Promise=t,this.dispatcher._Promise=t}},new a});
-
-/***/ },
-
-/***/ 46:
+/***/ 43:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function($, module, global) {/*** IMPORTS FROM imports-loader ***/
@@ -21809,7 +21797,19 @@
 	"'":"'","\n":"n","\r":"r","\u2028":"u2028","\u2029":"u2029"},Mn=zn[typeof exports]&&exports&&!exports.nodeType&&exports,qn=zn[typeof module]&&module&&!module.nodeType&&module,Pn=zn[typeof self]&&self&&self.Object&&self,Kn=zn[typeof window]&&window&&window.Object&&window,Vn=qn&&qn.exports===Mn&&Mn,Zn=Mn&&qn&&typeof global=="object"&&global&&global.Object&&global||Kn!==(this&&this.window)&&Kn||Pn||this,Yn=m(); true?(Zn._=Yn, !(__WEBPACK_AMD_DEFINE_RESULT__ = function(){
 	return Yn}.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))):Mn&&qn?Vn?(qn.exports=Yn)._=Yn:Mn._=Yn:Zn._=Yn}).call(this);
 	}.call(window));
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(41), __webpack_require__(4)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40), __webpack_require__(4)(module), (function() { return this; }())))
+
+/***/ },
+
+/***/ 44:
+/***/ function(module, exports) {
+
+	/*
+	fluxify v0.2.2
+	https://github.com/arqex/fluxify
+	GNU-2: https://github.com/arqex/fluxify/raw/master/LICENSE
+	*/
+	!function(t,e){"function"==typeof define&&define.amd?define([],e):"object"==typeof exports?module.exports=e():t.fluxify=e()}(this,function(){"use strict";var t={_extend:function(t){for(var e,i,r=0;r<arguments.length;r++){e=arguments[r];for(i in e)t[i]=e[i]}return t}},e=function(){Object.defineProperty(this,"_events",{value:{}}),"function"==typeof this.initialize&&this.initialize.apply(this,arguments)},i={on:function(t,e,i){var r=this._events[t]||[];return r.push({callback:e,once:i}),this._events[t]=r,this},once:function(t,e){this.on(t,e,!0)},off:function(t,e){if("undefined"==typeof t)this._events={};else if("undefined"==typeof e)this._events[t]=[];else{var i,r=this._events[t]||[];for(i=r.length-1;i>=0;i--)r[i]===e&&r.splice(i,1)}return this},trigger:function(t){var e,i,r=[].slice.call(arguments,1),n=this._events[t]||[],s=[];for(e=0;e<n.length;e++)i=n[e],i.callback?i.callback.apply(null,r):i.once=!0,i.once&&s.push(e);for(e=s.length-1;e>=0;e--)n.splice(s[e],1);return this}};t._extend(i,{addListener:i.on,removeListener:i.off,removeAllListeners:i.off,emit:i.trigger}),e.prototype={};for(var r in i)Object.defineProperty(e.prototype,r,{value:i[r]});Object.defineProperty(e,"_extend",{value:function(e){var i,r=this;i=e&&e.hasOwnProperty(constructor)?e.constructor:function(){return r.apply(this,arguments)},t._extend(i,r);var n=function(){Object.defineProperty(this,"constructor",{value:i})};if(n.prototype=r.prototype,i.prototype=new n,e)for(var s in e)"constructor"!=s&&Object.defineProperty(i.prototype,s,{value:e[s]});return i.__super__=r.prototype,i}});var n=e._extend({initialize:function(t){if(!t)return this.props={};this.props={};for(var e in t)this.props[e]=t[e]},get:function(t){return this.props[t]},set:function(t,e){var i,r,n=t,s=[];"undefined"!=typeof e&&(n={},n[t]=e);for(r in n)this.props[r]!=n[r]&&(i=this.props[r],this.props[r]=n[r],s.push({prop:r,previousValue:i,value:n[r]}));s.length&&this.emit("change",s)}}),s=e._extend({initialize:function(t){var e,i,r=this,s=t||{},o=new n(s.initialState);t.id&&Object.defineProperty(this,"_id",{value:t.id}),Object.defineProperties(this,{_callbacks:{writable:!0,configurable:!0,value:{}},addActionCallbacks:{value:function(t){for(e in t)r._callbacks[e]=t[e].bind(this,o)}},callback:{value:function(){var t=arguments[0],e=[].slice.call(arguments,1);return this._callbacks[t]?this._callbacks[t].apply(this,e):!0}.bind(this)}}),this.addActionCallbacks(s.actionCallbacks||{});var a=function(t){Object.defineProperty(r,t,{enumerable:!0,configurable:!1,get:function(){return o.get(t)}})};if(s.initialState)for(i in s.initialState)a(i,s.initialState[i]);o.on("change",function(t){var e,i,n=t.length;for(i=0;n>i;i++)e=t[i],r.hasOwnProperty(e.prop)||a(e.prop,e.value),r.emit("change:"+e.prop,e.value,e.previousValue);r.emit("change",t)})},getState:function(){return t._extend({},this)},waitFor:function(t){return this._dispatcher.waitFor(t)}}),o=function(){this._callbacks={},this._dispatchQueue=[],this._currentDispatch=!1,this._ID=1,"undefined"!=typeof Promise&&(this._Promise=Promise)};o.prototype={register:function(t,e){var i=t;return"function"==typeof t&&(i="ID_"+this._ID,e=t),this._callbacks[i]=e,this._ID++,i},registerStore:function(t,e){return Object.defineProperty(e,"_dispatcher",{value:this}),this.register(t,e.callback)},unregister:function(t){delete this._callbacks[t]},waitFor:function(t){var e=[],i=0;for(Array.isArray(t)||(t=[t]);i<t.length;i++)this._promises[t[i]]&&e.push(this._promises[t[i]]);return e.length?this._Promise.all(e):this._Promise.resolve()},dispatch:function(){var t,e=this,i=arguments;if(!this._Promise)throw new TypeError("No promises.");return this._currentDispatch?(t=this._currentDispatch.then(function(){return e._dispatch.apply(e,i)}),this._dispatchQueue.push(t),this._currentDispatch=t):this._currentDispatch=this._dispatch.apply(e,i)},_dispatch:function(){var t=this,e=arguments,i=[];this._promises=[],Object.keys(this._callbacks).forEach(function(r){t._promises[r]=t._Promise.resolve().then(function(){return t._callbacks[r].apply(t,e)}).catch(function(t){console.error(t.stack||t)}),i.push(t._promises[r])});var r=function(){t._dispatchQueue.shift(),t._dispatchQueue.length||(t._currentDispatch=!1)};return this._Promise.all(i).then(r,r)},isDispatching:function(){return!!this._dispatchQueue.length}};var a=function(){Object.defineProperty(this,"dispatcher",{value:new o}),this.stores={},"undefined"!=typeof Promise&&this.promisify(Promise)};return a.prototype={createStore:function(t){var e=new s(t);return e._id&&(this.stores[e._id]=e,this.dispatcher.registerStore(e._id,e)),e},doAction:function(){return this.dispatcher.dispatch.apply(this.dispatcher,arguments)},promisify:function(t){this._Promise=t,this.dispatcher._Promise=t}},new a});
 
 /***/ }
 

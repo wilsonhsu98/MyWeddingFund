@@ -9,6 +9,7 @@ import {
     SAVE_MONEY,
     SAVE_ORDER,
     TOGGLE_SHOW_ALL,
+    SET_PROGRESS,
     PROXY_URL,
     UPLOAD_URL,
 } from '../constants/actionTypes'
@@ -110,7 +111,8 @@ export function saveOrder(key, order) {
     }
 }
 
-export function pushToCloud(data) {
+export function pushToCloud(data, beforeFunc, afterFunc) {
+    let count = 0;
     const requests = data.filter((obj) => obj.money && !obj.upload)
                         .map((obj) => ({
                             'entry.1602692569': obj.key,
@@ -125,53 +127,30 @@ export function pushToCloud(data) {
                                 .filter(key => obj[key] !== '' && obj[key] !== null)
                                 .map((key => key + '=' + obj[key]))
                                 .join('&')
-                            return encodeURI(PROXY_URL).replace('@URL@', encodeURIComponent(UPLOAD_URL + params))
+                            return encodeURI(PROXY_URL).replace('@URL@', encodeURIComponent(UPLOAD_URL + encodeURI(params)))
                         })
-    // console.log(requests)
-    return receiveSource(data)
+    if (requests.length > 0 && typeof beforeFunc === 'function') beforeFunc()
+
     return (dispatch) => {
-        // dispatch(requestSource())
-        return Promise.all([
-            fetch(SOURCE_JSON)
-            .then(response => {
-                if (response.status >= 400) throw new Error("Bad response from server")
-                return response.json()
-            })
-            .then(json => json.feed.entry || [])
-            .then(data => data.map(member => ({
-                key: member.gsx$sn.$t,
-                order: '',
-                name: member.gsx$姓名.$t,
-                cat: member.gsx$男方女方親友.$t,
-                cake: member.gsx$餅 ? member.gsx$餅.$t : '',
-                table: member.gsx$桌次 ? member.gsx$桌次.$t : '',
-            }))),
-            fetch(TARGET_JSON)
-            .then(response => {
-                if (response.status >= 400) throw new Error("Bad response from server")
-                return response.json()
-            })
-            .then(json => json.feed.entry || [])
-            .then(data => data.map(member => ({
-                key: member.gsx$sn.$t,
-                order: member.gsx$順序.$t,
-                name: member.gsx$姓名.$t,
-                cat: member.gsx$男方女方親友.$t,
-                money: member.gsx$禮金.$t,
-                upload: true,
-            }))),
-        ]).then(pObj => {
-            const data = [
-                ...pObj[0].map(item0 => Object.assign({}, item0, pObj[1].find(item1 => item1.key === item0.key))),
-                ...pObj[1]
-                    .map(item => item.key)
-                    .filter(key => !new Set(pObj[0].map(item => item.key)).has(key))    // Get missing parts(keys) from target source
-                    .map(key => pObj[1].find(item => item.key === key))                 // Get missing parts(entire obj)
-            ].sort((a, b) => parseInt(a.key, 10) - parseInt(b.key,10))
-            dispatch(receiveSource(data))
-        }).catch(reason => {
-            dispatch(receiveFail(reason))
-        })
+        return Promise.all(
+            requests.map(url => {
+                return new Promise((resolve, reject) => {
+                    fetch(url, {cache: 'no-cache'})
+                    .then(response => {
+                        if (response.status >= 400) reject("Bad response from YQL server")
+                        return response.text()
+                    })
+                    .then(text => {
+                        if (text.indexOf('我們已經收到您回覆的表單。')) {
+                            resolve()
+                            dispatch(setProgress(++count / requests.length))
+                        }
+                    })
+                })
+            }))
+        .then(() => { dispatch(clearLocalStorage()) })
+        .then(() => { if (typeof afterFunc === 'function') afterFunc() })
+        .catch(reason => dispatch(receiveFail(reason)))
     }
 }
 
@@ -189,5 +168,12 @@ export function clearLocalStorage() {
 export function toggleShowAll() {
     return {
         type: TOGGLE_SHOW_ALL,
+    }
+}
+
+export function setProgress(val) {
+    return {
+        type: SET_PROGRESS,
+        uploadVal: val,
     }
 }

@@ -7,6 +7,7 @@ import {
     SAVE_MONEY,
     SAVE_ORDER,
     TOGGLE_SHOW_ALL,
+    SET_PROGRESS,
 } from '../constants/actionTypes'
 
 const overallState = {
@@ -107,6 +108,8 @@ function dataAction(state = dataState, action) {
 
 const uiState = {
     showAll: true,
+    uploadVal: 0,
+    onUpload: false,
 }
 function uiReducer(state = uiState, action) {
     switch (action.type) {
@@ -114,6 +117,12 @@ function uiReducer(state = uiState, action) {
             return {
                 ...state,
                 showAll: !state.showAll,
+            }
+        case SET_PROGRESS:
+            return {
+                ...state,
+                uploadVal: action.uploadVal,
+                onUpload: action.uploadVal ? true : false,
             }
         default:
             return state

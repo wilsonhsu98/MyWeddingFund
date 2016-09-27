@@ -19,21 +19,21 @@ webpackJsonp([0],[
 
 	__webpack_require__(7);
 
-	var _react = __webpack_require__(12);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(13);
+	var _reactDom = __webpack_require__(12);
 
-	var _reactRedux = __webpack_require__(14);
+	var _reactRedux = __webpack_require__(13);
 
-	var _action = __webpack_require__(32);
+	var _action = __webpack_require__(31);
 
-	var _store = __webpack_require__(36);
+	var _store = __webpack_require__(35);
 
 	var _store2 = _interopRequireDefault(_store);
 
-	var _Spreadsheet = __webpack_require__(40);
+	var _Spreadsheet = __webpack_require__(39);
 
 	var _Spreadsheet2 = _interopRequireDefault(_Spreadsheet);
 
@@ -1181,7 +1181,7 @@ webpackJsonp([0],[
 	var content = __webpack_require__(8);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(11)(content, {});
+	var update = __webpack_require__(10)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -1206,7 +1206,7 @@ webpackJsonp([0],[
 
 
 	// module
-	exports.push([module.id, "@charset \"UTF-8\";\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font: inherit;\n  font-size: 100%;\n  vertical-align: baseline; }\n\nhtml {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\ncaption, th, td {\n  text-align: left;\n  font-weight: normal;\n  vertical-align: middle; }\n\nq, blockquote {\n  quotes: none; }\n  q:before, q:after, blockquote:before, blockquote:after {\n    content: \"\";\n    content: none; }\n\na img {\n  border: none; }\n\nelements-of-type(html5-block) {\n  display: block; }\n\n.test {\n  background: #ccc url(" + __webpack_require__(10) + ") 0 0 no-repeat; }\n\nbody {\n  font: 20px 微軟正黑體;\n  overflow-y: scroll; }\n\n.title {\n  font: 30px 微軟正黑體;\n  text-align: center;\n  padding: 10px; }\n\n.spread-sheet {\n  position: relative; }\n  .spread-sheet .block-page {\n    display: inline-block;\n    position: absolute;\n    top: 0;\n    right: 0; }\n    .spread-sheet .block-page.open {\n      position: fixed;\n      top: 0;\n      right: 0;\n      bottom: 0;\n      left: 0;\n      background-color: rgba(204, 204, 204, 0.9); }\n      .spread-sheet .block-page.open .btn-open-block {\n        display: none; }\n      .spread-sheet .block-page.open .cloud-iframe {\n        display: inherit;\n        visibility: visible;\n        position: absolute;\n        width: 90%;\n        height: 90%;\n        top: 5%;\n        right: 5%;\n        bottom: 5%;\n        left: 5%; }\n      .spread-sheet .block-page.open .round-block, .spread-sheet .block-page.open .pwd-block {\n        display: inherit;\n        visibility: visible;\n        position: absolute;\n        margin: auto;\n        left: 0;\n        right: 0;\n        top: 0;\n        bottom: 0; }\n      .spread-sheet .block-page.open .pwd-block {\n        width: 200px;\n        height: 100px;\n        line-height: 100px;\n        text-align: center; }\n    .spread-sheet .block-page .cloud-iframe, .spread-sheet .block-page .round-block, .spread-sheet .block-page .pwd-block {\n      display: none;\n      visibility: hidden; }\n\n.sheet-list {\n  padding: 10px; }\n\n.sheet-table {\n  width: 100%;\n  table-layout: fixed;\n  border-collapse: collapse;\n  border: 1px solid #999; }\n  .sheet-table th, .sheet-table td {\n    padding: 0 2px;\n    line-height: 50px; }\n    .sheet-table th.heightlight, .sheet-table td.heightlight {\n      font-weight: bold;\n      font-size: 40px;\n      color: red; }\n  .sheet-table th, .sheet-table td.center {\n    text-align: center; }\n\n.sheet-row {\n  border-bottom: 1px solid #999; }\n  .sheet-row.hide {\n    display: none; }\n  .sheet-row.find {\n    background-color: #FFD1D1; }\n  .sheet-row .td-for-barcode {\n    width: 200px;\n    display: none; }\n  .sheet-row img {\n    vertical-align: middle; }\n\n.bar-code {\n  display: inline-block;\n  width: 200px;\n  height: 40px; }\n\n.search-bar {\n  display: inline-block;\n  float: left;\n  margin-bottom: 10px;\n  padding-left: 4px; }\n  .search-bar > * {\n    vertical-align: middle; }\n  .search-bar .chk-block {\n    display: inline-block; }\n\n.button-bar {\n  display: inline-block;\n  float: right;\n  margin-bottom: 10px; }\n\n.money-list {\n  display: none; }\n\nbutton {\n  font: 20px 微軟正黑體;\n  height: 35px;\n  line-height: 35px;\n  padding: 0 8px;\n  margin: 0 4px;\n  border: 1px solid darkgray;\n  border-radius: 4px; }\n  button.btn-refresh {\n    visibility: hidden; }\n\ninput[type=text], input[type=password] {\n  font: 20px 微軟正黑體;\n  width: 100px;\n  height: 35px;\n  line-height: 35px;\n  padding: 8px;\n  border: 1px solid darkgray;\n  border-radius: 4px;\n  box-sizing: border-box; }\n  input[type=text]:disabled, input[type=password]:disabled {\n    background-color: #CCC; }\n\nselect {\n  width: 100%;\n  max-width: 300px;\n  font: 20px 微軟正黑體;\n  height: 35px;\n  line-height: 35px;\n  padding: 0 0 0 8px;\n  border: 1px solid darkgray;\n  border-radius: 2px;\n  box-sizing: border-box; }\n\n.hidden {\n  display: none; }\n\n.round-block {\n  position: relative;\n  width: 400px;\n  height: 400px; }\n  .round-block.hide {\n    -webkit-animation-name: fadeOutRound;\n    -webkit-animation-duration: 0.5s;\n    -webkit-animation-timing-function: linear;\n    -webkit-animation-fill-mode: forwards; }\n  .round-block .round-block__track {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%; }\n    .round-block .round-block__track.hide {\n      display: none; }\n  .round-block .round-block__number {\n    display: block;\n    width: 100%;\n    height: 100%;\n    line-height: 400px;\n    text-align: center;\n    color: #FFF;\n    font-size: 100px;\n    font-weight: bold; }\n\n@media screen and (max-width: 640px) {\n  body,\n  .sheet-table td.heightlight {\n    font-size: 16px; }\n  input[type=text] {\n    font-size: 16px;\n    padding: 2px 5px; }\n  button.btn-refresh {\n    position: absolute;\n    top: 2px;\n    right: 2px;\n    font-size: 16px;\n    padding: 0 4px;\n    margin: 0;\n    height: 30px;\n    line-height: 18px;\n    visibility: visible; }\n  .title {\n    font-size: 18px;\n    font-weight: bold; }\n  .sheet-table .sheet-row {\n    border-top: 1px solid #999; }\n  .sheet-table td {\n    text-align: left;\n    display: block;\n    line-height: 30px;\n    padding-left: 60px; }\n    .sheet-table td.center {\n      text-align: left; }\n    .sheet-table td:before {\n      margin-left: -60px;\n      font-size: 16px;\n      color: initial;\n      content: attr(data-th) \":\";\n      font-weight: bold;\n      display: inline-block;\n      width: 40px;\n      text-align: right;\n      padding: 0 10px; }\n  .no-mobile,\n  .spread-sheet .block-page,\n  .sheet-table th {\n    display: none !important; } }\n\n@media print {\n  .sheet-list {\n    margin: 0;\n    padding: 0; }\n  .sheet-table {\n    margin: 0;\n    padding: 0;\n    border-spacing: 0;\n    border-collapse: collapse;\n    border: none; }\n  .sheet-row, .sheet-row.hide {\n    margin: 0;\n    padding: 0;\n    width: 33%;\n    height: 3.58cm;\n    display: inline-block;\n    border-bottom: none;\n    text-align: center; }\n  .sheet-row td:not(.no-print) {\n    margin: 0;\n    display: inline-block; }\n  .sheet-row td.td-for-barcode {\n    margin: 10px 5px 0 10px;\n    display: inline-block; }\n  .sheet-row div {\n    line-height: 17px;\n    font-size: 15px;\n    text-align: center; }\n  .no-print {\n    display: none; }\n  .money-list.sheet-table {\n    margin: 30px;\n    padding: 0;\n    display: table;\n    page-break-after: always; }\n    .money-list.sheet-table div {\n      margin-bottom: 60px; } }\n", ""]);
+	exports.push([module.id, "@charset \"UTF-8\";\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font: inherit;\n  font-size: 100%;\n  vertical-align: baseline; }\n\nhtml {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\ncaption, th, td {\n  text-align: left;\n  font-weight: normal;\n  vertical-align: middle; }\n\nq, blockquote {\n  quotes: none; }\n  q:before, q:after, blockquote:before, blockquote:after {\n    content: \"\";\n    content: none; }\n\na img {\n  border: none; }\n\nelements-of-type(html5-block) {\n  display: block; }\n\nbody {\n  font: 20px 微軟正黑體;\n  overflow-y: scroll; }\n\n.title {\n  font: 30px 微軟正黑體;\n  text-align: center;\n  padding: 10px; }\n\n.spread-sheet {\n  position: relative; }\n  .spread-sheet .block-page {\n    display: inline-block;\n    position: absolute;\n    top: 0;\n    right: 0; }\n    .spread-sheet .block-page.open {\n      position: fixed;\n      top: 0;\n      right: 0;\n      bottom: 0;\n      left: 0;\n      background-color: rgba(204, 204, 204, 0.9); }\n      .spread-sheet .block-page.open .btn-open-block {\n        display: none; }\n      .spread-sheet .block-page.open .cloud-iframe {\n        display: inherit;\n        visibility: visible;\n        position: absolute;\n        width: 90%;\n        height: 90%;\n        top: 5%;\n        right: 5%;\n        bottom: 5%;\n        left: 5%; }\n      .spread-sheet .block-page.open .round-block, .spread-sheet .block-page.open .pwd-block {\n        display: inherit;\n        visibility: visible;\n        position: absolute;\n        margin: auto;\n        left: 0;\n        right: 0;\n        top: 0;\n        bottom: 0; }\n      .spread-sheet .block-page.open .pwd-block {\n        width: 200px;\n        height: 100px;\n        line-height: 100px;\n        text-align: center; }\n    .spread-sheet .block-page .cloud-iframe, .spread-sheet .block-page .round-block, .spread-sheet .block-page .pwd-block {\n      display: none;\n      visibility: hidden; }\n\n.sheet-list {\n  padding: 10px; }\n\n.sheet-table {\n  width: 100%;\n  table-layout: fixed;\n  border-collapse: collapse;\n  border: 1px solid #999; }\n  .sheet-table th, .sheet-table td {\n    padding: 0 2px;\n    line-height: 50px; }\n    .sheet-table th.heightlight, .sheet-table td.heightlight {\n      font-weight: bold;\n      font-size: 40px;\n      color: red; }\n  .sheet-table th, .sheet-table td.center {\n    text-align: center; }\n\n.sheet-row {\n  border-bottom: 1px solid #999; }\n  .sheet-row.hide {\n    display: none; }\n  .sheet-row.find {\n    background-color: #FFD1D1; }\n  .sheet-row .td-for-barcode {\n    width: 200px;\n    display: none; }\n  .sheet-row img {\n    vertical-align: middle; }\n\n.bar-code {\n  display: inline-block;\n  width: 200px;\n  height: 40px; }\n\n.search-bar {\n  display: inline-block;\n  float: left;\n  margin-bottom: 10px;\n  padding-left: 4px; }\n  .search-bar > * {\n    vertical-align: middle; }\n  .search-bar .chk-block {\n    display: inline-block; }\n\n.button-bar {\n  display: inline-block;\n  float: right;\n  margin-bottom: 10px; }\n\n.money-list {\n  display: none; }\n\nbutton {\n  font: 20px 微軟正黑體;\n  height: 35px;\n  line-height: 35px;\n  padding: 0 8px;\n  margin: 0 4px;\n  border: 1px solid darkgray;\n  border-radius: 4px; }\n  button.btn-refresh {\n    visibility: hidden; }\n\ninput[type=text], input[type=password] {\n  font: 20px 微軟正黑體;\n  width: 100px;\n  height: 35px;\n  line-height: 35px;\n  padding: 8px;\n  border: 1px solid darkgray;\n  border-radius: 4px;\n  box-sizing: border-box; }\n  input[type=text]:disabled, input[type=password]:disabled {\n    background-color: #CCC; }\n\nselect {\n  width: 100%;\n  max-width: 300px;\n  font: 20px 微軟正黑體;\n  height: 35px;\n  line-height: 35px;\n  padding: 0 0 0 8px;\n  border: 1px solid darkgray;\n  border-radius: 2px;\n  box-sizing: border-box; }\n\n.hidden {\n  display: none; }\n\n.round-block {\n  position: relative;\n  width: 400px;\n  height: 400px; }\n  .round-block.hide {\n    -webkit-animation-name: fadeOutRound;\n    -webkit-animation-duration: 0.5s;\n    -webkit-animation-timing-function: linear;\n    -webkit-animation-fill-mode: forwards; }\n  .round-block .round-block__track {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%; }\n    .round-block .round-block__track.hide {\n      display: none; }\n  .round-block .round-block__number {\n    display: block;\n    width: 100%;\n    height: 100%;\n    line-height: 400px;\n    text-align: center;\n    color: #FFF;\n    font-size: 100px;\n    font-weight: bold; }\n\n@media screen and (max-width: 640px) {\n  body,\n  .sheet-table td.heightlight {\n    font-size: 16px; }\n  input[type=text] {\n    font-size: 16px;\n    padding: 2px 5px; }\n  button.btn-refresh {\n    position: absolute;\n    top: 2px;\n    right: 2px;\n    font-size: 16px;\n    padding: 0 4px;\n    margin: 0;\n    height: 30px;\n    line-height: 18px;\n    visibility: visible; }\n  .title {\n    font-size: 18px;\n    font-weight: bold; }\n  .sheet-table .sheet-row {\n    border-top: 1px solid #999; }\n  .sheet-table td {\n    text-align: left;\n    display: block;\n    line-height: 30px;\n    padding-left: 60px; }\n    .sheet-table td.center {\n      text-align: left; }\n    .sheet-table td:before {\n      margin-left: -60px;\n      font-size: 16px;\n      color: initial;\n      content: attr(data-th) \":\";\n      font-weight: bold;\n      display: inline-block;\n      width: 40px;\n      text-align: right;\n      padding: 0 10px; }\n  .no-mobile,\n  .spread-sheet .block-page,\n  .sheet-table th {\n    display: none !important; } }\n\n@media print {\n  .sheet-list {\n    margin: 0;\n    padding: 0; }\n  .sheet-table {\n    margin: 0;\n    padding: 0;\n    border-spacing: 0;\n    border-collapse: collapse;\n    border: none; }\n  .sheet-row, .sheet-row.hide {\n    margin: 0;\n    padding: 0;\n    width: 33%;\n    height: 3.58cm;\n    display: inline-block;\n    border-bottom: none;\n    text-align: center; }\n  .sheet-row td:not(.no-print) {\n    margin: 0;\n    display: inline-block; }\n  .sheet-row td.td-for-barcode {\n    margin: 10px 5px 0 10px;\n    display: inline-block; }\n  .sheet-row div {\n    line-height: 17px;\n    font-size: 15px;\n    text-align: center; }\n  .no-print {\n    display: none; }\n  .money-list.sheet-table {\n    margin: 30px;\n    padding: 0;\n    display: table;\n    page-break-after: always; }\n    .money-list.sheet-table div {\n      margin-bottom: 60px; } }\n", ""]);
 
 	// exports
 
@@ -1269,12 +1269,6 @@ webpackJsonp([0],[
 
 /***/ },
 /* 10 */
-/***/ function(module, exports) {
-
-	module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAUCAMAAADm3a4bAAABC1BMVEUAAADtHCQzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzN3SEozMzMzMzMzMzPtHCTtHCQzMzMzMzMzMzPtHCQzMzMzMzMzMzPtHCTtHCTtHCTtHCQzMzMzMzMzMzMzMzMzMzMzMzPtHCTtHCTtHCTtHCQzMzPtHCQzMzMzMzMzMzMzMzMzMzMzMzPtHCT///8zMzP5trntHCTxSlH2jJD0en/////7y835sbMzMzPtHCQzMzP////tIirxUFbyWV/+8PH95+juLDT4o6f0cHX+9fb3mJzwQEf5rK/70NL/+/vxSVDzX2X82Nn1e3/5t7r83d72iY76w8X83+D1horvMTn6v8HzZ2ztHCQXdl3CAAAAOnRSTlMAWzK8yoYHeBEePALdYOLvsAuMogiu+VolcajkaJM/IhZ9lEo60+jKxXdIRZXp8pZTnZpkJ7FaWvLx7rGI7gAAAdFJREFUOMu9lGdz4jAQhhcXWY6BoxwkJIRyJZd2vVsL2HRIIFeS/P+fkl0JU/Ip/pJnBi0jz+N9JWsEmpeZwoswPPryOoDUZMg0vH2TUg1eJerV8Hb4NZ28cvuTXvdqGeOPVJmN2+mYV0T4jWcV4/k8Vlrgca2Dq0qwp3x+mM/pvfoQ7jDA7zxtWerYavmqbV0ol2TLslokK1/Lx42KutCNdxnj8gAY5QH4ah+klpvNZgBuVZW17IFQZQAocOTBdC3fY7e2JTOWjk2Smy2pupEhawMAfaXrBU4S924eh4dbsntO6ySZZ0iW6reRgyp3Drsx4uimu17yMny3E7usJMlSSkEytBXLbd9Vn1imVWIvadzDReeR3FCeie2yXKyyTJwBcdQfYbQ+JdFoEq5iUycIpKBfEYQkBBWAogxAShqYwhBxmvSN5pyh9vQzMkAcm2Pydz665j8HOnWurrg6ezye2ZfAVCsO98w5p+aQ/EKcdUgd/sFYb1sBmGy5kt3Ip9AAJr+fF1yEeA/MT0T8P/0XId70Q9NYS7btbGQbzo186XI5EeIENB9RM1tteQaMXHK3ZM8uAWMXHaFjOznQBJ8X8WycfOjaM14Gm2voMOU19AAFn2XnYyF3zwAAAABJRU5ErkJggg=="
-
-/***/ },
-/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -1528,9 +1522,9 @@ webpackJsonp([0],[
 
 
 /***/ },
+/* 11 */,
 /* 12 */,
-/* 13 */,
-/* 14 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1539,16 +1533,16 @@ webpackJsonp([0],[
 
 	function _interopRequire(obj) { return obj && obj.__esModule ? obj['default'] : obj; }
 
-	var _componentsProvider = __webpack_require__(15);
+	var _componentsProvider = __webpack_require__(14);
 
 	exports.Provider = _interopRequire(_componentsProvider);
 
-	var _componentsConnect = __webpack_require__(17);
+	var _componentsConnect = __webpack_require__(16);
 
 	exports.connect = _interopRequire(_componentsConnect);
 
 /***/ },
-/* 15 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1561,9 +1555,9 @@ webpackJsonp([0],[
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _react = __webpack_require__(12);
+	var _react = __webpack_require__(11);
 
-	var _utilsStoreShape = __webpack_require__(16);
+	var _utilsStoreShape = __webpack_require__(15);
 
 	var _utilsStoreShape2 = _interopRequireDefault(_utilsStoreShape);
 
@@ -1622,14 +1616,14 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 16 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	exports.__esModule = true;
 
-	var _react = __webpack_require__(12);
+	var _react = __webpack_require__(11);
 
 	exports['default'] = _react.PropTypes.shape({
 	  subscribe: _react.PropTypes.func.isRequired,
@@ -1639,7 +1633,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 17 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -1656,31 +1650,31 @@ webpackJsonp([0],[
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var _react = __webpack_require__(12);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utilsStoreShape = __webpack_require__(16);
+	var _utilsStoreShape = __webpack_require__(15);
 
 	var _utilsStoreShape2 = _interopRequireDefault(_utilsStoreShape);
 
-	var _utilsShallowEqual = __webpack_require__(18);
+	var _utilsShallowEqual = __webpack_require__(17);
 
 	var _utilsShallowEqual2 = _interopRequireDefault(_utilsShallowEqual);
 
-	var _utilsIsPlainObject = __webpack_require__(19);
+	var _utilsIsPlainObject = __webpack_require__(18);
 
 	var _utilsIsPlainObject2 = _interopRequireDefault(_utilsIsPlainObject);
 
-	var _utilsWrapActionCreators = __webpack_require__(20);
+	var _utilsWrapActionCreators = __webpack_require__(19);
 
 	var _utilsWrapActionCreators2 = _interopRequireDefault(_utilsWrapActionCreators);
 
-	var _hoistNonReactStatics = __webpack_require__(30);
+	var _hoistNonReactStatics = __webpack_require__(29);
 
 	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
 
-	var _invariant = __webpack_require__(31);
+	var _invariant = __webpack_require__(30);
 
 	var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -1909,7 +1903,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 18 */
+/* 17 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1943,7 +1937,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 19 */
+/* 18 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -1978,7 +1972,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 20 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1986,7 +1980,7 @@ webpackJsonp([0],[
 	exports.__esModule = true;
 	exports['default'] = wrapActionCreators;
 
-	var _redux = __webpack_require__(21);
+	var _redux = __webpack_require__(20);
 
 	function wrapActionCreators(actionCreators) {
 	  return function (dispatch) {
@@ -1997,7 +1991,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 21 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2006,23 +2000,23 @@ webpackJsonp([0],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _createStore = __webpack_require__(22);
+	var _createStore = __webpack_require__(21);
 
 	var _createStore2 = _interopRequireDefault(_createStore);
 
-	var _utilsCombineReducers = __webpack_require__(24);
+	var _utilsCombineReducers = __webpack_require__(23);
 
 	var _utilsCombineReducers2 = _interopRequireDefault(_utilsCombineReducers);
 
-	var _utilsBindActionCreators = __webpack_require__(27);
+	var _utilsBindActionCreators = __webpack_require__(26);
 
 	var _utilsBindActionCreators2 = _interopRequireDefault(_utilsBindActionCreators);
 
-	var _utilsApplyMiddleware = __webpack_require__(28);
+	var _utilsApplyMiddleware = __webpack_require__(27);
 
 	var _utilsApplyMiddleware2 = _interopRequireDefault(_utilsApplyMiddleware);
 
-	var _utilsCompose = __webpack_require__(29);
+	var _utilsCompose = __webpack_require__(28);
 
 	var _utilsCompose2 = _interopRequireDefault(_utilsCompose);
 
@@ -2033,7 +2027,7 @@ webpackJsonp([0],[
 	exports.compose = _utilsCompose2['default'];
 
 /***/ },
-/* 22 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2043,7 +2037,7 @@ webpackJsonp([0],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utilsIsPlainObject = __webpack_require__(23);
+	var _utilsIsPlainObject = __webpack_require__(22);
 
 	var _utilsIsPlainObject2 = _interopRequireDefault(_utilsIsPlainObject);
 
@@ -2201,7 +2195,7 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 23 */
+/* 22 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2236,7 +2230,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 24 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -2246,17 +2240,17 @@ webpackJsonp([0],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _createStore = __webpack_require__(22);
+	var _createStore = __webpack_require__(21);
 
-	var _utilsIsPlainObject = __webpack_require__(23);
+	var _utilsIsPlainObject = __webpack_require__(22);
 
 	var _utilsIsPlainObject2 = _interopRequireDefault(_utilsIsPlainObject);
 
-	var _utilsMapValues = __webpack_require__(25);
+	var _utilsMapValues = __webpack_require__(24);
 
 	var _utilsMapValues2 = _interopRequireDefault(_utilsMapValues);
 
-	var _utilsPick = __webpack_require__(26);
+	var _utilsPick = __webpack_require__(25);
 
 	var _utilsPick2 = _interopRequireDefault(_utilsPick);
 
@@ -2373,7 +2367,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 25 */
+/* 24 */
 /***/ function(module, exports) {
 
 	/**
@@ -2398,7 +2392,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 26 */
+/* 25 */
 /***/ function(module, exports) {
 
 	/**
@@ -2425,7 +2419,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 27 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2435,7 +2429,7 @@ webpackJsonp([0],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _utilsMapValues = __webpack_require__(25);
+	var _utilsMapValues = __webpack_require__(24);
 
 	var _utilsMapValues2 = _interopRequireDefault(_utilsMapValues);
 
@@ -2485,7 +2479,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 28 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2498,7 +2492,7 @@ webpackJsonp([0],[
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _compose = __webpack_require__(29);
+	var _compose = __webpack_require__(28);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
@@ -2551,7 +2545,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 29 */
+/* 28 */
 /***/ function(module, exports) {
 
 	/**
@@ -2581,7 +2575,7 @@ webpackJsonp([0],[
 	module.exports = exports["default"];
 
 /***/ },
-/* 30 */
+/* 29 */
 /***/ function(module, exports) {
 
 	/**
@@ -2623,7 +2617,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 31 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -2681,7 +2675,7 @@ webpackJsonp([0],[
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 32 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2697,12 +2691,13 @@ webpackJsonp([0],[
 	exports.setLocalStorage = setLocalStorage;
 	exports.clearLocalStorage = clearLocalStorage;
 	exports.toggleShowAll = toggleShowAll;
+	exports.setProgress = setProgress;
 
-	var _isomorphicFetch = __webpack_require__(33);
+	var _isomorphicFetch = __webpack_require__(32);
 
 	var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);
 
-	var _actionTypes = __webpack_require__(35);
+	var _actionTypes = __webpack_require__(34);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2822,7 +2817,8 @@ webpackJsonp([0],[
 	    };
 	}
 
-	function pushToCloud(data) {
+	function pushToCloud(data, beforeFunc, afterFunc) {
+	    var count = 0;
 	    var requests = data.filter(function (obj) {
 	        return obj.money && !obj.upload;
 	    }).map(function (obj) {
@@ -2840,67 +2836,29 @@ webpackJsonp([0],[
 	        }).map(function (key) {
 	            return key + '=' + obj[key];
 	        }).join('&');
-	        return encodeURI(_actionTypes.PROXY_URL).replace('@URL@', encodeURIComponent(_actionTypes.UPLOAD_URL + params));
+	        return encodeURI(_actionTypes.PROXY_URL).replace('@URL@', encodeURIComponent(_actionTypes.UPLOAD_URL + encodeURI(params)));
 	    });
-	    // console.log(requests)
-	    return receiveSource(data);
+	    if (requests.length > 0 && typeof beforeFunc === 'function') beforeFunc();
+
 	    return function (dispatch) {
-	        // dispatch(requestSource())
-	        return Promise.all([(0, _isomorphicFetch2.default)(_actionTypes.SOURCE_JSON).then(function (response) {
-	            if (response.status >= 400) throw new Error("Bad response from server");
-	            return response.json();
-	        }).then(function (json) {
-	            return json.feed.entry || [];
-	        }).then(function (data) {
-	            return data.map(function (member) {
-	                return {
-	                    key: member.gsx$sn.$t,
-	                    order: '',
-	                    name: member.gsx$姓名.$t,
-	                    cat: member.gsx$男方女方親友.$t,
-	                    cake: member.gsx$餅 ? member.gsx$餅.$t : '',
-	                    table: member.gsx$桌次 ? member.gsx$桌次.$t : ''
-	                };
-	            });
-	        }), (0, _isomorphicFetch2.default)(_actionTypes.TARGET_JSON).then(function (response) {
-	            if (response.status >= 400) throw new Error("Bad response from server");
-	            return response.json();
-	        }).then(function (json) {
-	            return json.feed.entry || [];
-	        }).then(function (data) {
-	            return data.map(function (member) {
-	                return {
-	                    key: member.gsx$sn.$t,
-	                    order: member.gsx$順序.$t,
-	                    name: member.gsx$姓名.$t,
-	                    cat: member.gsx$男方女方親友.$t,
-	                    money: member.gsx$禮金.$t,
-	                    upload: true
-	                };
-	            });
-	        })]).then(function (pObj) {
-	            var data = [].concat(_toConsumableArray(pObj[0].map(function (item0) {
-	                return Object.assign({}, item0, pObj[1].find(function (item1) {
-	                    return item1.key === item0.key;
-	                }));
-	            })), _toConsumableArray(pObj[1].map(function (item) {
-	                return item.key;
-	            }).filter(function (key) {
-	                return !new Set(pObj[0].map(function (item) {
-	                    return item.key;
-	                })).has(key);
-	            }) // Get missing parts(keys) from target source
-	            .map(function (key) {
-	                return pObj[1].find(function (item) {
-	                    return item.key === key;
+	        return Promise.all(requests.map(function (url) {
+	            return new Promise(function (resolve, reject) {
+	                (0, _isomorphicFetch2.default)(url, { cache: 'no-cache' }).then(function (response) {
+	                    if (response.status >= 400) reject("Bad response from YQL server");
+	                    return response.text();
+	                }).then(function (text) {
+	                    if (text.indexOf('我們已經收到您回覆的表單。')) {
+	                        resolve();
+	                        dispatch(setProgress(++count / requests.length));
+	                    }
 	                });
-	            }))). // Get missing parts(entire obj)
-	            sort(function (a, b) {
-	                return parseInt(a.key, 10) - parseInt(b.key, 10);
 	            });
-	            dispatch(receiveSource(data));
+	        })).then(function () {
+	            dispatch(clearLocalStorage());
+	        }).then(function () {
+	            if (typeof afterFunc === 'function') afterFunc();
 	        }).catch(function (reason) {
-	            dispatch(receiveFail(reason));
+	            return dispatch(receiveFail(reason));
 	        });
 	    };
 	}
@@ -2922,20 +2880,27 @@ webpackJsonp([0],[
 	    };
 	}
 
+	function setProgress(val) {
+	    return {
+	        type: _actionTypes.SET_PROGRESS,
+	        uploadVal: val
+	    };
+	}
+
 /***/ },
-/* 33 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// the whatwg-fetch polyfill installs the fetch() function
 	// on the global object (window or self)
 	//
 	// Return that as the export for use in Webpack, Browserify etc.
-	__webpack_require__(34);
+	__webpack_require__(33);
 	module.exports = self.fetch.bind(self);
 
 
 /***/ },
-/* 34 */
+/* 33 */
 /***/ function(module, exports) {
 
 	(function() {
@@ -3322,7 +3287,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 35 */
+/* 34 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3333,7 +3298,7 @@ webpackJsonp([0],[
 	var SHEET_URL = exports.SHEET_URL = 'https://docs.google.com/spreadsheets/d/1QCmCLZRLQVAreONM6tWjI4P1YEYoW5sqvxEdiCL-inE/edit#gid=1460813619';
 	var SOURCE_JSON = exports.SOURCE_JSON = 'https://spreadsheets.google.com/feeds/list/14ly_hpAb4y2Zp7uQi6FFaUUf3rzZ3Ey1R5lWSZw37ls/1/public/values?alt=json';
 	var TARGET_JSON = exports.TARGET_JSON = 'https://spreadsheets.google.com/feeds/list/1QCmCLZRLQVAreONM6tWjI4P1YEYoW5sqvxEdiCL-inE/1/public/values?alt=json';
-	var PROXY_URL = exports.PROXY_URL = 'https://query.yahooapis.com/v1/public/yql?q=select * from html where url="@URL@"&format=xml\'&callback=?';
+	var PROXY_URL = exports.PROXY_URL = 'https://query.yahooapis.com/v1/public/yql?q=select * from html where url="@URL@"&format=xml';
 	var UPLOAD_URL = exports.UPLOAD_URL = 'https://docs.google.com/forms/d/147KkPqWY_h4-caZOuuvQ4UVW9JHPt6zt4Ttf6AtiBZQ/formResponse?';
 
 	var GET_DATA = exports.GET_DATA = 'GET_DATA';
@@ -3345,9 +3310,10 @@ webpackJsonp([0],[
 	var SAVE_ORDER = exports.SAVE_ORDER = 'SAVE_ORDER';
 
 	var TOGGLE_SHOW_ALL = exports.TOGGLE_SHOW_ALL = 'TOGGLE_SHOW_ALL';
+	var SET_PROGRESS = exports.SET_PROGRESS = 'SET_PROGRESS';
 
 /***/ },
-/* 36 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3357,17 +3323,17 @@ webpackJsonp([0],[
 	});
 	exports.default = configureStore;
 
-	var _redux = __webpack_require__(21);
+	var _redux = __webpack_require__(20);
 
-	var _reduxThunk = __webpack_require__(37);
+	var _reduxThunk = __webpack_require__(36);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-	var _reduxLogger = __webpack_require__(38);
+	var _reduxLogger = __webpack_require__(37);
 
 	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-	var _reducer = __webpack_require__(39);
+	var _reducer = __webpack_require__(38);
 
 	var _reducer2 = _interopRequireDefault(_reducer);
 
@@ -3382,7 +3348,7 @@ webpackJsonp([0],[
 	}
 
 /***/ },
-/* 37 */
+/* 36 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3404,7 +3370,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 38 */
+/* 37 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -3549,7 +3515,7 @@ webpackJsonp([0],[
 	module.exports = exports['default'];
 
 /***/ },
-/* 39 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3560,9 +3526,9 @@ webpackJsonp([0],[
 	    value: true
 	});
 
-	var _redux = __webpack_require__(21);
+	var _redux = __webpack_require__(20);
 
-	var _actionTypes = __webpack_require__(35);
+	var _actionTypes = __webpack_require__(34);
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -3662,7 +3628,9 @@ webpackJsonp([0],[
 	}
 
 	var uiState = {
-	    showAll: true
+	    showAll: true,
+	    uploadVal: 0,
+	    onUpload: false
 	};
 	function uiReducer() {
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? uiState : arguments[0];
@@ -3672,6 +3640,11 @@ webpackJsonp([0],[
 	        case _actionTypes.TOGGLE_SHOW_ALL:
 	            return _extends({}, state, {
 	                showAll: !state.showAll
+	            });
+	        case _actionTypes.SET_PROGRESS:
+	            return _extends({}, state, {
+	                uploadVal: action.uploadVal,
+	                onUpload: action.uploadVal ? true : false
 	            });
 	        default:
 	            return state;
@@ -3685,7 +3658,7 @@ webpackJsonp([0],[
 	exports.default = rootReducer;
 
 /***/ },
-/* 40 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
@@ -3698,31 +3671,27 @@ webpackJsonp([0],[
 	    value: true
 	});
 
-	var _react = __webpack_require__(12);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(13);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRedux = __webpack_require__(14);
+	var _reactRedux = __webpack_require__(13);
 
-	var _actionTypes = __webpack_require__(35);
+	var _actionTypes = __webpack_require__(34);
 
-	var _action = __webpack_require__(32);
+	var _action = __webpack_require__(31);
 
-	var _jBarcode = __webpack_require__(42);
+	var _jBarcode = __webpack_require__(41);
 
 	var _jBarcode2 = _interopRequireDefault(_jBarcode);
 
-	var _RoundProgress = __webpack_require__(43);
+	var _RoundProgress = __webpack_require__(42);
 
 	var _RoundProgress2 = _interopRequireDefault(_RoundProgress);
-
-	var _AppAction = __webpack_require__(44);
-
-	var _AppAction2 = _interopRequireDefault(_AppAction);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3786,16 +3755,23 @@ webpackJsonp([0],[
 	            on("change", function (value) {
 	                $(_this2.refs.progressLabel).text(Math.min(parseInt(value, 10), 100) + '%');
 	            }).on("complete", function () {
-	                _this2.setState({
-	                    openUpload: false
-	                });
-	                _this2.progress.setValue(0);
+	                dispatch((0, _action.setProgress)(0));
 	            });
 
 	            if (this.state.openPwd) {
 	                setTimeout(function () {
 	                    _this2.refs.pwd.focus();
 	                }, 0);
+	            }
+	        }
+	    }, {
+	        key: 'componentDidUpdate',
+	        value: function componentDidUpdate() {
+	            if (this.props.uploadVal) {
+	                // this.setState({
+	                //     openUpload: true
+	                // });
+	                this.progress.setValue(this.props.uploadVal * 100);
 	            }
 	        }
 	    }, {
@@ -3877,7 +3853,7 @@ webpackJsonp([0],[
 	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'block-page no-print' + (this.state.openUpload ? ' open' : '') },
+	                    { className: 'block-page no-print' + (this.props.onUpload ? ' open' : '') },
 	                    _react2.default.createElement(
 	                        'div',
 	                        { ref: 'progress' },
@@ -4232,8 +4208,7 @@ webpackJsonp([0],[
 	            var dispatch = _props.dispatch;
 	            var data = _props.data;
 
-	            dispatch((0, _action.pushToCloud)(data));
-	            // AppAction.pushToCloud(disabledBtn, enableBtn);
+	            dispatch((0, _action.pushToCloud)(data, disabledBtn, enableBtn));
 	        }
 	    }, {
 	        key: '_print',
@@ -4476,67 +4451,13 @@ webpackJsonp([0],[
 	    return {
 	        data: state.overallReducer.data,
 	        cat: state.overallReducer.cat,
-	        showAll: state.uiReducer.showAll
+	        showAll: state.uiReducer.showAll,
+	        onUpload: state.uiReducer.onUpload,
+	        uploadVal: state.uiReducer.uploadVal
 	    };
 	}
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Spreadsheet);
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(41)))
-
-/***/ },
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _fluxify = __webpack_require__(45);
-
-	var _fluxify2 = _interopRequireDefault(_fluxify);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Actions = {
-		save: function save(type, key, val) {
-			var action = {
-				money: 'SAVE_MONEY',
-				order: 'SAVE_ORDER'
-			};
-			_fluxify2.default.doAction({
-				actionType: action[type],
-				key: key,
-				val: val
-			});
-		},
-		insert: function insert(name, cat, money) {
-			_fluxify2.default.doAction({
-				actionType: 'INSERT_NEW_DATA',
-				name: name,
-				cat: cat,
-				money: money
-			});
-		},
-		loadFromServer: function loadFromServer() {
-			_fluxify2.default.doAction({
-				actionType: 'LOAD_FROM_SERVER'
-			});
-		},
-		clearLocalStorage: function clearLocalStorage() {
-			_fluxify2.default.doAction({
-				actionType: 'CLEAR_LOCAL_STORAGE'
-			});
-		},
-		pushToCloud: function pushToCloud(before, after) {
-			_fluxify2.default.doAction({
-				actionType: 'PUSH_TO_CLOUD',
-				beforeFunc: before,
-				afterFunc: after
-			});
-		}
-	};
-
-	module.exports = Actions;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40)))
 
 /***/ }
 ]);
