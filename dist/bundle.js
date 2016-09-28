@@ -1158,22 +1158,7 @@ webpackJsonp([0],[
 
 
 /***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	module.exports = function(module) {
-		if(!module.webpackPolyfill) {
-			module.deprecate = function() {};
-			module.paths = [];
-			// module.parent = undefined by default
-			module.children = [];
-			module.webpackPolyfill = 1;
-		}
-		return module;
-	}
-
-
-/***/ },
+/* 4 */,
 /* 5 */
 /***/ function(module, exports) {
 
@@ -1202,8 +1187,8 @@ webpackJsonp([0],[
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js?includePaths[]=/Users/hsuwilson/MyWeddingFund/node_modules/compass-mixins/lib!./main.scss", function() {
-				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js?includePaths[]=/Users/hsuwilson/MyWeddingFund/node_modules/compass-mixins/lib!./main.scss");
+			module.hot.accept("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js?includePaths[]=D:/GitHubProject/MyWeddingFund/node_modules/compass-mixins/lib!./main.scss", function() {
+				var newContent = require("!!./../../../node_modules/css-loader/index.js!./../../../node_modules/sass-loader/index.js?includePaths[]=D:/GitHubProject/MyWeddingFund/node_modules/compass-mixins/lib!./main.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -2869,9 +2854,9 @@ webpackJsonp([0],[
 	                });
 	            });
 	        })).then(function () {
-	            dispatch(clearLocalStorage());
-	        }).then(function () {
 	            if (typeof afterFunc === 'function') afterFunc();
+	        }).then(function () {
+	            dispatch(clearLocalStorage());
 	        }).catch(function (reason) {
 	            return dispatch(receiveFail(reason));
 	        });
@@ -3700,11 +3685,11 @@ webpackJsonp([0],[
 
 	var _action = __webpack_require__(31);
 
-	var _jBarcode = __webpack_require__(41);
+	var _jBarcode = __webpack_require__(42);
 
 	var _jBarcode2 = _interopRequireDefault(_jBarcode);
 
-	var _RoundProgress = __webpack_require__(42);
+	var _RoundProgress = __webpack_require__(43);
 
 	var _RoundProgress2 = _interopRequireDefault(_RoundProgress);
 
@@ -3771,6 +3756,7 @@ webpackJsonp([0],[
 	                $(_this2.refs.progressLabel).text(Math.min(parseInt(value, 10), 100) + '%');
 	            }).on("complete", function () {
 	                dispatch((0, _action.setProgress)(0));
+	                _this2.progress.setValue(0);
 	            });
 
 	            if (this.state.openPwd) {

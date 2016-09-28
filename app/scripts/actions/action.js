@@ -148,8 +148,8 @@ export function pushToCloud(data, beforeFunc, afterFunc) {
                     })
                 })
             }))
-        .then(() => { dispatch(clearLocalStorage()) })
         .then(() => { if (typeof afterFunc === 'function') afterFunc() })
+        .then(() => { dispatch(clearLocalStorage()) })
         .catch(reason => dispatch(receiveFail(reason)))
     }
 }
