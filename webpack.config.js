@@ -22,8 +22,7 @@ var config = {
     plugins: [
         new webpack.ProvidePlugin({
             jQuery: "jquery",
-            $: "jquery",
-            _: "underscore"
+            $: "jquery"
         }),
         new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.js'),
         // new webpack.optimize.UglifyJsPlugin({
@@ -38,7 +37,7 @@ var config = {
         })
     ],
     module: {
-        noParse: [],
+        noParse: [/react-with-addons/],
         loaders: [
             { test: /\.js[x]?$/, exclude: /(node_modules|app\/lib)/, loader: 'babel?presets[]=react,presets[]=es2015,presets[]=stage-0' },
             { test: /\.scss$/, loader: "style!css!sass?includePaths[]=" + path.resolve(__dirname, "./node_modules/compass-mixins/lib") },

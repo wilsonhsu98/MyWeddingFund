@@ -58,6 +58,7 @@ class Spreadsheet extends Component {
             $(this.refs.progressLabel).text(Math.min(parseInt(value, 10), 100) + '%')
         }).on("complete", () => {
             dispatch(setProgress(0))
+            this.progress.setValue(0)
         })
 
         if (this.state.openPwd) {
@@ -300,7 +301,8 @@ class Sheetlist extends Component {
             this.refs.upload.disabled = false
         }
         const { dispatch, data } = this.props
-        dispatch(pushToCloud(data, disabledBtn, enableBtn));
+
+        dispatch(pushToCloud(data, disabledBtn, enableBtn))
     }
     _print() {
         window.print()
