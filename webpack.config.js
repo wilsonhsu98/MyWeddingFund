@@ -62,12 +62,10 @@ var lib_dir = __dirname + "/app/lib/",
     vendors = {
         // Libs
         jquery: {path: 'jquery/jquery-1.11.2.min'},
-        underscore: {path: 'underscore/lodash.min', loader: 'imports?this=>window'},
 
         // React
         react: {path: 'react/react-with-addons'},
         'react-dom': {path: 'react/react-dom.min', loader: true},
-        fluxify: {path: 'fluxify/fluxify.min'},
 
         // jQuery component
         jBarcode: {path: 'jquery/jquery.barcode.0.3', loader: 'imports?jQuery=jquery'},
