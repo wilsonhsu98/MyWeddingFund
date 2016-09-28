@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
-import { SHEET_URL } from '../constants/actionTypes'
+import { SHEET_URL, PWD } from '../constants/actionTypes'
 import {
     clearLocalStorage,
     fetchData,
@@ -10,11 +10,8 @@ import {
     saveOrder,
     pushToCloud,
     toggleShowAll,
-    setProgress,
 } from '../actions/action'
-
 import jBarcode from 'jBarcode'
-import RoundProgress from 'RoundProgress'
 
 const ENTER_KEY_CODE = 13
 const TAB_KEY_CODE = 9
@@ -33,46 +30,13 @@ class Spreadsheet extends Component {
         }
     }
     componentDidMount() {
-        // AppStore.on('change:uploadVal', function(value) {
-        //     this.setState({
-        //         openUpload: true
-        //     });
-        //     this.progress.setValue(value * 100);
-        // }.bind(this));
         const { dispatch } = this.props
         dispatch(fetchData())
-
-        this.progress = new RoundProgress(this.refs.progress, {
-            "displayGearwheel": false,
-            "radius": 200, // any integer
-            "lineWidth": 30, // any integer
-            "lineCap": "round", // each end style of the line. "round", "butt", or "square", default "butt"
-            "max": 100,
-            "value": 0,
-            "interval": 500,
-            "bgStyle": "gradient", // "gradient" or "image", defualt: "gradient"
-            "bgGradientTop": "#28cfbb", // if bgStyle is "gradient" then necessary
-            "bgGradientDown": "#45BBE6", // if bgStyle is "gradient" then necessary
-            "animateStyle": "easeInOutQuad", // specifies the speed curve of the animation. "liner" or "easeInOutQuad", defualt: "liner"
-        }).on("change", (value) => {
-            $(this.refs.progressLabel).text(Math.min(parseInt(value, 10), 100) + '%')
-        }).on("complete", () => {
-            dispatch(setProgress(0))
-            this.progress.setValue(0)
-        })
 
         if (this.state.openPwd) {
             setTimeout(() => {
                 this.refs.pwd.focus()
             }, 0)
-        }
-    }
-    componentDidUpdate() {
-        if (this.props.uploadVal) {
-            // this.setState({
-            //     openUpload: true
-            // });
-            this.progress.setValue(this.props.uploadVal * 100)
         }
     }
     render() {
@@ -116,9 +80,17 @@ class Spreadsheet extends Component {
                     <iframe className='cloud-iframe' ref='cloudFrame'/>
                     <button onClick={(e) => this._openCloud(e)} className='no-print btn-open-block' disabled={this.state.readOnly ? true : false}>雲端</button>
                 </div>
-                <div className={'block-page no-print' + (this.props.onUpload ? ' open' : '')}>
-                    <div ref="progress">
-                        <span ref="progressLabel"></span>
+                <div className={'block-page no-print' + (this.props.isLoading ? ' open' : '')}>
+                    <div className="sk-cube-grid">
+                        <div className="sk-cube sk-cube1"></div>
+                        <div className="sk-cube sk-cube2"></div>
+                        <div className="sk-cube sk-cube3"></div>
+                        <div className="sk-cube sk-cube4"></div>
+                        <div className="sk-cube sk-cube5"></div>
+                        <div className="sk-cube sk-cube6"></div>
+                        <div className="sk-cube sk-cube7"></div>
+                        <div className="sk-cube sk-cube8"></div>
+                        <div className="sk-cube sk-cube9"></div>
                     </div>
                 </div>
                 <div className={'block-page no-print' + (this.state.openPwd ? ' open' : '')}>
@@ -142,7 +114,7 @@ class Spreadsheet extends Component {
             sessionStorage.setItem("password", event.target.value)
             this.setState({
                 openPwd: false,
-                readOnly: sessionStorage.getItem("password") === "9527" ? false : true,
+                readOnly: sessionStorage.getItem("password") === PWD ? false : true,
             })
         }
     }
@@ -185,7 +157,7 @@ class Sheetlist extends Component {
                     <td data-th='編號' className='center'>{row.key}</td>
                     <td data-th='名字'>{row.name}</td>
                     <td data-th='分類'className='no-print'>{row.cat}</td>
-                    <td data-th='桌次'className={'no-print center' + (row.table !== parseInt(row.key / 100, 10).toString() ? ' heightlight' : '')}>{row.table}</td>
+                    <td data-th='桌次'className={'no-print center' + (row.table.toString() !== parseInt(row.key / 100, 10).toString() ? ' heightlight' : '')}>{row.table}</td>
                     <td className='no-print center no-mobile'>{row.cake ? '餅' :　''}</td>
                     <td className='no-print center no-mobile'>
                         <RowInput type='money' datakey={row.key} value={row.money ? row.money : ''} ref={'money_' + row.key} focusToSearch={() => this._onFocusSearch()} clearFocus={() => this._onClearFocus()} upload={row.upload ? true : false} placeholder="禮金" disabled={this.props.readOnly ? true : false} dispatch={this.props.dispatch}/>
@@ -411,7 +383,7 @@ class RowInput extends Component {
     }
     _onChange(event) {
         this.setState({
-            value: event.target.value,
+            value: parseInt(event.target.value, 10),
         })
     }
     _onKeyDown(event) {
@@ -427,21 +399,21 @@ class RowInput extends Component {
         }
     }
 }
-RowInput.propTypes = {
-    datakey: PropTypes.string,
-    className: PropTypes.string,
-    id: PropTypes.string,
-    placeholder: PropTypes.string,
-    // value: PropTypes.string,
-    upload: PropTypes.bool,
-}
+// RowInput.propTypes = {
+//     datakey: PropTypes.string,
+//     className: PropTypes.string,
+//     id: PropTypes.string,
+//     placeholder: PropTypes.string,
+//     // value: PropTypes.string,
+//     upload: PropTypes.bool,
+// }
 
 function mapStateToProps(state) {
     return {
         data: state.overallReducer.data,
         cat: state.overallReducer.cat,
         showAll: state.uiReducer.showAll,
-        onUpload: state.uiReducer.onUpload,
+        isLoading: state.overallReducer.isLoading,
         uploadVal: state.uiReducer.uploadVal,
     }
 }

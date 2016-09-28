@@ -67,8 +67,7 @@ var lib_dir = __dirname + "/app/lib/",
         'react-dom': {path: 'react/react-dom.min', loader: true},
 
         // jQuery component
-        jBarcode: {path: 'jquery/jquery.barcode.0.3', loader: 'imports?jQuery=jquery'},
-        RoundProgress: {path: 'ui/RoundProgress', loader: 'imports?$=jquery'}
+        jBarcode: {path: 'jquery/jquery.barcode.0.3', loader: 'imports?jQuery=jquery'}
     };
 
 for (var item in vendors) {

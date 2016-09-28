@@ -1,7 +1,5 @@
 import fetch from 'isomorphic-fetch'
 import {
-    SOURCE_JSON,
-    TARGET_JSON,
     GET_DATA,
     GET_DATA_SUCCESS,
     GET_DATA_FAIL,
@@ -9,9 +7,9 @@ import {
     SAVE_MONEY,
     SAVE_ORDER,
     TOGGLE_SHOW_ALL,
-    SET_PROGRESS,
-    PROXY_URL,
-    UPLOAD_URL,
+    FILE_ID,
+    SHEET_NAME,
+    APPSCRIPT_URL,
 } from '../constants/actionTypes'
 
 
@@ -36,52 +34,37 @@ const receiveFail = (error) => {
 export function fetchData() {
     const localData = localStorage.getItem("guestData")
     if (localData) {
-        return receiveSource(JSON.parse(localData));
+        return receiveSource(JSON.parse(localData))
     }
     else {
         return (dispatch) => {
             dispatch(requestSource())
-            return Promise.all([
-                fetch(SOURCE_JSON)
+
+            let url = new URL(APPSCRIPT_URL)
+            const params = {fileid: FILE_ID, sheetname: SHEET_NAME}
+            Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+
+            return fetch(url)
                 .then(response => {
                     if (response.status >= 400) throw new Error("Bad response from server")
                     return response.json()
                 })
-                .then(json => json.feed.entry || [])
                 .then(data => data.map(member => ({
-                    key: member.gsx$sn.$t,
-                    order: '',
-                    name: member.gsx$姓名.$t,
-                    cat: member.gsx$男方女方親友.$t,
-                    cake: member.gsx$餅 ? member.gsx$餅.$t : '',
-                    table: member.gsx$桌次 ? member.gsx$桌次.$t : '',
-                }))),
-                fetch(TARGET_JSON)
-                .then(response => {
-                    if (response.status >= 400) throw new Error("Bad response from server")
-                    return response.json()
+                    key: member.sn,
+                    order: member.順序,
+                    name: member.姓名,
+                    cat: member['男方/女方親友'],
+                    cake: member.餅,
+                    table: member.桌次,
+                    money: member.禮金,
+                    upload: member.禮金 === '' || member.禮金 === undefined ? false : true,
+                    timestamp: member.時間戳記,
+                })))
+                .then(data => {
+                    dispatch(receiveSource(data.sort((a, b) => parseInt(a.key, 10) - parseInt(b.key,10))))
+                }).catch(reason => {
+                    dispatch(receiveFail(reason))
                 })
-                .then(json => json.feed.entry || [])
-                .then(data => data.map(member => ({
-                    key: member.gsx$sn.$t,
-                    order: member.gsx$順序.$t,
-                    name: member.gsx$姓名.$t,
-                    cat: member.gsx$男方女方親友.$t,
-                    money: member.gsx$禮金.$t,
-                    upload: true,
-                }))),
-            ]).then(pObj => {
-                const data = [
-                    ...pObj[0].map(item0 => Object.assign({}, item0, pObj[1].find(item1 => item1.key === item0.key))),
-                    ...pObj[1]
-                        .map(item => item.key)
-                        .filter(key => !new Set(pObj[0].map(item => item.key)).has(key))    // Get missing parts(keys) from target source
-                        .map(key => pObj[1].find(item => item.key === key))                 // Get missing parts(entire obj)
-                ].sort((a, b) => parseInt(a.key, 10) - parseInt(b.key,10))
-                dispatch(receiveSource(data))
-            }).catch(reason => {
-                dispatch(receiveFail(reason))
-            })
         }
     }
 }
@@ -111,45 +94,40 @@ export function saveOrder(key, order) {
     }
 }
 
-export function pushToCloud(data, beforeFunc, afterFunc) {
-    let count = 0;
-    const requests = data.filter((obj) => obj.money && !obj.upload)
+export function pushToCloud(data) {
+    const rows = data.filter((obj) => obj.money && !obj.upload)
                         .map((obj) => ({
-                            'entry.1602692569': obj.key,
-                            'entry.913501581': obj.order,
-                            'entry.551273632': obj.name,
-                            'entry.1691809764': obj.cat,
-                            'entry.596466268': obj.money,
-                            'hl': 'zh-TW',
+                            timestamp: obj.timestamp,
+                            sn: obj.key,
+                            姓名: obj.name,
+                            '男方/女方親友': obj.cat,
+                            禮金: obj.money,
+                            順序: obj.order,
                         }))
-                        .map((obj) => {
-                            const params = Object.keys(obj)
-                                .filter(key => obj[key] !== '' && obj[key] !== null)
-                                .map((key => key + '=' + obj[key]))
-                                .join('&')
-                            return encodeURI(PROXY_URL).replace('@URL@', encodeURIComponent(UPLOAD_URL + encodeURI(params)))
-                        })
-    if (requests.length > 0 && typeof beforeFunc === 'function') beforeFunc()
+
+    let params = new FormData()
+    params.append("fileid", FILE_ID)
+    params.append("sheetname", SHEET_NAME)
+    params.append("data", JSON.stringify(rows))
 
     return (dispatch) => {
-        return Promise.all(
-            requests.map(url => {
-                return new Promise((resolve, reject) => {
-                    fetch(url, {cache: 'no-cache'})
-                    .then(response => {
-                        if (response.status >= 400) reject("Bad response from YQL server")
-                        return response.text()
-                    })
-                    .then(text => {
-                        if (text.indexOf('我們已經收到您回覆的表單。')) {
-                            resolve()
-                            dispatch(setProgress(++count / requests.length))
-                        }
-                    })
-                })
-            }))
-        .then(() => { if (typeof afterFunc === 'function') afterFunc() })
-        .then(() => { dispatch(clearLocalStorage()) })
+        dispatch(requestSource())
+
+        return fetch(APPSCRIPT_URL, {
+            method: 'post',
+            body: params,
+        })
+        .then(response => {
+            if (response.status >= 400) throw new Error("Bad response from server")
+            return response.json()
+        })
+        .then(json => {
+            if (json.result === 'success') {
+                dispatch(clearLocalStorage())
+            } else {
+                throw new Error("Bad response from server:" + JSON.parse(json.error))
+            }
+        })
         .catch(reason => dispatch(receiveFail(reason)))
     }
 }
@@ -168,12 +146,5 @@ export function clearLocalStorage() {
 export function toggleShowAll() {
     return {
         type: TOGGLE_SHOW_ALL,
-    }
-}
-
-export function setProgress(val) {
-    return {
-        type: SET_PROGRESS,
-        uploadVal: val,
     }
 }
